@@ -1,4 +1,10 @@
 {
+    "rewrites": [
+        {
+            "source": "/api/:path*",
+            "destination": "/server/server.js"
+        }
+    ],
     "version": 2,
     "builds": [
         {
