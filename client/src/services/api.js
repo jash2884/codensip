@@ -1,8 +1,14 @@
 import axios from "axios";
 
-export const API_BASE_URL = "http://localhost:5000/api";
+// This is the key change:
+// In production (on Vercel), the API is on the same domain at the path /api.
+// In development, it points to your local server.
+export const API_BASE_URL = import.meta.env.PROD
+  ? "/api"
+  : "http://localhost:5000/api";
 
-// Create a re-usable axios instance for authenticated requests
+// This function remains the same.
+// It will now use the dynamic API_BASE_URL above.
 export const createAuthAxios = (token) => {
   return axios.create({
     baseURL: API_BASE_URL,
