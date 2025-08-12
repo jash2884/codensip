@@ -14,8 +14,8 @@ export const AuthPage = ({ onAuth }) => {
     e.preventDefault();
     setError("");
     const url = isLogin
-      ? `${API_BASE_URL}/auth/login`
-      : `${API_BASE_URL}/auth/register`;
+      ? `${API_BASE_URL}/users/login` // Changed "auth" to "users"
+      : `${API_BASE_URL}/users`; // Changed "auth/register" to "users"
     try {
       const { data } = await axios.post(url, { username, password });
       if (isLogin) {
