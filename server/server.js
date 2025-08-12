@@ -17,6 +17,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// --- TEST ROUTE ---
+app.get("/api/test", (req, res) => {
+  res.status(200).json({ message: "Success! The backend is running." });
+});
+
 // Multer setup for in-memory file storage
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
